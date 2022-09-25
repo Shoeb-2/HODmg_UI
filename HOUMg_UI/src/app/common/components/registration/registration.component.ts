@@ -24,14 +24,14 @@ export class RegistrationComponent implements OnInit {
   constructor(private router: Router,private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      username: new FormControl(null, [Validators.required]),
-      name: new FormControl(null, [Validators.required]),
-      contactNO: new FormControl(null, [Validators.required]),
-      department: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [Validators.required]),
-      passwordConfirm: new FormControl(null, [Validators.required])
+    this.registerForm = this.fb.group({
+      email:['',[Validators.required, Validators.email]],
+      username: ['',[Validators.required]],
+      name: ['',[Validators.required]],
+      contactNO: ['',[Validators.required]],
+      department: ['',[Validators.required]],
+      password: ['',[Validators.required]],
+      passwordConfirm: ['',[Validators.required]]
     },
       // add custom Validators to the form, to make sure that password and passwordConfirm are equal
       { validators: CustomValidators.passwordsMatching }
