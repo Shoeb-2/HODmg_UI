@@ -7,12 +7,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './common/material/material/material.module';
+import { StaffregistrationComponent } from './common/components/staffregistration/staffregistration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    StaffregistrationComponent
   ],
   imports: [
     BrowserModule,

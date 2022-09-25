@@ -1,14 +1,14 @@
 <div>
     <a [routerLink]="['../login']">Go to Login</a>
     <mat-card>
-      <mat-card-title>HOD Registration</mat-card-title>
+      <mat-card-title>Staff Registration</mat-card-title>
   
       <mat-card-content>
-        <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <form [formGroup]="staffregisterForm" (ngSubmit)="register()">
         
           <mat-form-field>
             <input type="text" matInput placeholder="Enter your Name" formControlName="name">
-            <mat-error *ngIf="this.registerForm.get('name')?.touched && this.registerForm.get('name')?.hasError('required')">
+            <mat-error *ngIf="this.staffregisterForm.get('name')?.touched && this.staffregisterForm.get('name')?.hasError('required')">
               Name is required</mat-error>
           </mat-form-field>
 
@@ -16,23 +16,23 @@
             <input type="email" matInput placeholder="Email" formControlName="email">
             <!-- Here we can display error messages/hints for the user, if one of the Validators adds an error to the email 
              with the .touched check we only display the hints if the input was touched by the users -->
-            <mat-error *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('required')">
+            <mat-error *ngIf="this.staffregisterForm.get('email')?.touched && this.staffregisterForm.get('email')?.hasError('required')">
               Email is required</mat-error>
-            <mat-error *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.hasError('email')">
+            <mat-error *ngIf="this.staffregisterForm.get('email')?.touched && this.staffregisterForm.get('email')?.hasError('email')">
               Email must be a valid Email</mat-error>
           </mat-form-field>
   
           <mat-form-field>
             <input type="text" matInput placeholder="Username" formControlName="username">
             <mat-error
-              *ngIf="this.registerForm.get('username')?.touched && this.registerForm.get('username')?.hasError('required')">
+              *ngIf="this.staffregisterForm.get('username')?.touched && this.staffregisterForm.get('username')?.hasError('required')">
               Username is required</mat-error>
           </mat-form-field>
   
           <mat-form-field>
             <input type="text" matInput placeholder="Contact Number" formControlName="contactNO">
             <mat-error
-              *ngIf="this.registerForm.get('contactNO')?.touched && this.registerForm.get('contactNO')?.hasError('required')">
+              *ngIf="this.staffregisterForm.get('contactNO')?.touched && this.staffregisterForm.get('contactNO')?.hasError('required')">
               Contact is required</mat-error>
           </mat-form-field>
 
@@ -48,24 +48,24 @@
           <mat-form-field>
             <input type="password" matInput placeholder="Password" formControlName="password">
             <mat-error
-              *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.hasError('required')">
+              *ngIf="this.staffregisterForm.get('password')?.touched && this.staffregisterForm.get('password')?.hasError('required')">
               Password is required</mat-error>
           </mat-form-field>
   
           <mat-form-field>
             <input type="password" matInput placeholder="Password Confirmation" formControlName="passwordConfirm">
             <mat-error
-              *ngIf="this.registerForm.get('passwordConfirm')?.touched && this.registerForm.get('passwordConfirm')?.hasError('required')">
+              *ngIf="this.staffregisterForm.get('passwordConfirm')?.touched && this.staffregisterForm.get('passwordConfirm')?.hasError('required')">
               Password Confirmation is required</mat-error>
           </mat-form-field>
   
           <mat-error
-            *ngIf="this.registerForm.get('passwordConfirm')?.dirty && this.registerForm.hasError('passwordsNotMatching')">
+            *ngIf="this.staffregisterForm.get('passwordConfirm')?.dirty && this.staffregisterForm.hasError('passwordsNotMatching')">
             Passwords are not matching!</mat-error>
   
           <div class="button">
-            <!-- Button is disabled(not clickable), if our RegisterForm contains Validation Errors -->
-            <button type="submit" mat-button [disabled]="!registerForm.valid">Register</button>
+            <!-- Button is disabled(not clickable), if our staffregisterForm contains Validation Errors -->
+            <button type="submit" mat-button [disabled]="!staffregisterForm.valid">Register</button>
           </div>
   
         </form>
