@@ -21,7 +21,9 @@
             *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')">
             Password is required</mat-error>
         </mat-form-field>
-
+        <mat-checkbox formControlName="isstafflogin"  color="primary" style="padding-right: 6%;">Login as Staff</mat-checkbox>
+        <mat-checkbox formControlName="ishodlogin" color="primary">Login as HOD</mat-checkbox>
+        
         <div class="button">
           <button mat-button [matMenuTriggerFor]="menu">Register</button>
           <mat-menu #menu="matMenu">

@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
+    isstafflogin: new FormControl(null),
+    ishodlogin: new FormControl(null),
   });
   
   constructor(
@@ -44,7 +46,12 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
-    this.router.navigateByUrl('staff')
+    console.log(this.loginForm.controls['isstafflogin'].value);
+    if(this.loginForm.controls['isstafflogin'].value){
+     this.router.navigateByUrl('staff')
+    }else{
+      this.router.navigateByUrl('hod')
+    }
     // this.authService.login(this.loginForm.value).pipe(
     //   // route to protected/dashboard, if login was successfull
     //   tap(() => this.router.navigate(['../../protected/dashboard']))

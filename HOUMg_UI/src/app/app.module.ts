@@ -10,7 +10,6 @@ import { MaterialModule } from './common/material/material/material.module';
 import { StaffregistrationComponent } from './common/components/staffregistration/staffregistration.component';
 import { SideNavComponent } from './common/components/side-nav/side-nav.component';
 import { HomeScreenStaffComponent } from './Modules/StaffModule/components/home-screen-staff/home-screen-staff.component';
-import { LeavemanagementComponent } from './Modules/StaffModule/components/leavemanagement/leavemanagement.component';
 
 
 @NgModule({
