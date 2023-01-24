@@ -1,10 +1,10 @@
 <div>
     
 <h1>Leave Balances</h1>
-<div class="flex-container">
+<!-- <div class="flex-container">
   <div>
     <mat-card>
-        <mat-card-title class="CardHeaderTittle">Causual Leave</mat-card-title>
+        <mat-card-title class="CardHeaderTittle">Causual Leaves</mat-card-title>
         <mat-card-content class="grid-container">
           <div d-flex>
             <div class="item2 grid-item">
@@ -38,7 +38,7 @@
 
 <div>
   <mat-card>
-      <mat-card-title class="CardHeaderTittle">Causual Leave</mat-card-title>
+      <mat-card-title class="CardHeaderTittle">Earned Leaves</mat-card-title>
       <mat-card-content class="grid-container">
         <div d-flex>
           <div class="item2 grid-item">
@@ -72,7 +72,7 @@
 
 <div>
   <mat-card>
-      <mat-card-title class="CardHeaderTittle">Causual Leave</mat-card-title>
+      <mat-card-title class="CardHeaderTittle">Comp Offs</mat-card-title>
       <mat-card-content class="grid-container">
         <div d-flex>
           <div class="item2 grid-item">
@@ -103,7 +103,34 @@
       </mat-card-content>
     </mat-card> 
 </div>
+</div> -->
+
+<mat-grid-list cols="4" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile class="gridtittleclass" *ngFor="let tile of tiles" 
+  [colspan]="tile.cols"
+  [rowspan]="tile.rows">
+  <mat-grid-tile-header style="font-size: larger;color: black;">
+   {{tile.text}}
+  </mat-grid-tile-header>
+  <div>
+    <div>
+      <label class="">Available</label>
+      <label>4</label>
+    </div>  
+    <div>
+      <label>Consumned</label>
+      <label>4</label>
+    </div>
+    <div>
+      <label>Carry Over</label>
+      <label>4</label>
+    </div>
+    <div>
+      <label>Annual Quota</label>
+      <label>4</label>
+    </div>
+  </div>
+  </mat-grid-tile>
+</mat-grid-list>
 </div>
 
-
-</div>
