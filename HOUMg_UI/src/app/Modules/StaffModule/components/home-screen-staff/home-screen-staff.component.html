@@ -1,136 +1,87 @@
-<div>
-    
+<div class="mainscreensection">
 <h1>Leave Balances</h1>
-<!-- <div class="flex-container">
-  <div>
-    <mat-card>
-        <mat-card-title class="CardHeaderTittle">Causual Leaves</mat-card-title>
-        <mat-card-content class="grid-container">
-          <div d-flex>
-            <div class="item2 grid-item">
-              <label>Available</label>
-              <br>
-              <label>4</label>
-            </div>  
-            <div class="item13 grid-item">
-              <label>Consumned</label>
-              <br>
-              <label>4</label>
-            </div>
-          </div>
-
-          <div>
-            <div class="item4 grid-item">
-              <label>Carry Over</label>
-              <br>
-              <label>4</label>
-            </div>
-            <div class="item5 grid-item">
-              <label>Annual Quota</label>
-              <br>
-              <label>4</label>
-            </div>
-          </div>
-          
-        </mat-card-content>
-      </mat-card> 
-</div>
-
-<div>
-  <mat-card>
-      <mat-card-title class="CardHeaderTittle">Earned Leaves</mat-card-title>
-      <mat-card-content class="grid-container">
-        <div d-flex>
-          <div class="item2 grid-item">
-            <label>Available</label>
-            <br>
-            <label>4</label>
-          </div>  
-          <div class="item13 grid-item">
-            <label>Consumned</label>
-            <br>
-            <label>4</label>
-          </div>
-        </div>
-
-        <div>
-          <div class="item4 grid-item">
-            <label>Carry Over</label>
-            <br>
-            <label>4</label>
-          </div>
-          <div class="item5 grid-item">
-            <label>Annual Quota</label>
-            <br>
-            <label>4</label>
-          </div>
-        </div>
-        
-      </mat-card-content>
-    </mat-card> 
-</div>
-
-<div>
-  <mat-card>
-      <mat-card-title class="CardHeaderTittle">Comp Offs</mat-card-title>
-      <mat-card-content class="grid-container">
-        <div d-flex>
-          <div class="item2 grid-item">
-            <label>Available</label>
-            <br>
-            <label>4</label>
-          </div>  
-          <div class="item13 grid-item">
-            <label>Consumned</label>
-            <br>
-            <label>4</label>
-          </div>
-        </div>
-
-        <div>
-          <div class="item4 grid-item">
-            <label>Carry Over</label>
-            <br>
-            <label>4</label>
-          </div>
-          <div class="item5 grid-item">
-            <label>Annual Quota</label>
-            <br>
-            <label>4</label>
-          </div>
-        </div>
-        
-      </mat-card-content>
-    </mat-card> 
-</div>
-</div> -->
-
-<mat-grid-list cols="4" rowHeight="200px" gutterSize="5px">
-  <mat-grid-tile class="gridtittleclass" *ngFor="let tile of tiles" 
+<mat-grid-list cols="3" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile class="gridtittleclass w-25" *ngFor="let tile of tiles" 
   [colspan]="tile.cols"
   [rowspan]="tile.rows">
   <mat-grid-tile-header style="font-size: larger;color: black;">
    {{tile.text}}
   </mat-grid-tile-header>
-  <div>
-    <div>
-      <label class="">Available</label>
-      <label>4</label>
+  <div class="container" style="margin-top: 20%;">
+    <div class="d-flex flex-wrap justify-content-between pb-3">
+      <label>Available</label>
+      <label>{{tile.AvailableLeave}}</label>
     </div>  
-    <div>
+    <div class="d-flex flex-wrap justify-content-between pb-3">
       <label>Consumned</label>
-      <label>4</label>
+      <label>{{tile.ConsumnedLeave}}</label>
     </div>
-    <div>
+    <div class="d-flex flex-wrap justify-content-between pb-3">
       <label>Carry Over</label>
-      <label>4</label>
+      <label>{{tile.CarryOverLeave}}</label>
     </div>
-    <div>
+    <div class="d-flex flex-wrap justify-content-between pb-3">
       <label>Annual Quota</label>
-      <label>4</label>
+      <label>{{tile.AnnualQuotaLeave}}</label>
     </div>
   </div>
   </mat-grid-tile>
 </mat-grid-list>
+
+<div class="leavesummarysection">
+  <h1>Leave Summary</h1>
+
+  <button mat-raised-button color="primary">Apply Leave</button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="SrNo">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.SrNo}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="from_Date">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> From Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.from_Date}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="to_Date">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> To Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.to_Date}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Reason">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> Reason </th>
+      <td mat-cell *matCellDef="let element"> {{element.Reason}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="leaveType">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> Leave Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.leaveType}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef class="tableheader"> Cancel leave </th>
+      <td mat-cell *matCellDef="let element">	<mat-icon>delete_sweep</mat-icon></td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
 </div>
 
