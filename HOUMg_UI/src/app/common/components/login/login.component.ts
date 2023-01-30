@@ -46,16 +46,11 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
-    console.log(this.loginForm.controls['isstafflogin'].value);
     if(this.loginForm.controls['isstafflogin'].value){
      this.router.navigateByUrl('staff')
     }else{
       this.router.navigateByUrl('hod')
     }
-    // this.authService.login(this.loginForm.value).pipe(
-    //   // route to protected/dashboard, if login was successfull
-    //   tap(() => this.router.navigate(['../../protected/dashboard']))
-    // ).subscribe();
   }
   clickMenuItem(menuItem : MatMenuListItem){
     let showRegisterFormbyselectedMenu;
